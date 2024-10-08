@@ -25,7 +25,7 @@
  * Recommend to define this in your compiler.
  * */
 //#define CHIPSEL_M355      /**< ADuCM355 */
-//#define CHIPSEL_594X      /**< AD5940 or AD5941 */
+#define CHIPSEL_594X      /**< AD5940 or AD5941 */
 
 /* library version number */
 #define AD5940LIB_VER_MAJOR       0    /**< Major number */
@@ -4205,6 +4205,12 @@
  * @{
 */
 
+// This ifdef allows the header to be used in platformio
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef int32_t AD5940Err;    /**< error number defination */
 
 /**
@@ -4927,6 +4933,13 @@ void      AD5940_ReadWriteNBytes(unsigned char *pSendBuffer,unsigned char *pRecv
 uint32_t  AD5940_GetMCUIntFlag(void);
 uint32_t  AD5940_ClrMCUIntFlag(void);
 uint32_t  AD5940_MCUResourceInit(void *pCfg);
+
+// This ifdef allows the header to be used in platformio
+#ifdef __cplusplus
+}
+#endif
+
+
 /**
  * @} Library_Interface
 */

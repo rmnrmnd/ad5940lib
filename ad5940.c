@@ -1101,6 +1101,8 @@ void AD5940_Initialize(void)
     uint32_t reg_data;
   }RegTable[]=
   {
+    //due an unknown bug wakeup timer register must be written multiple times
+    {0x0908, 0x02c9},
     {0x0908, 0x02c9},
     {0x0c08, 0x206C},
     {0x21F0, 0x0010},
@@ -1123,6 +1125,8 @@ void AD5940_Initialize(void)
     {0x2250, 0x103F},
     {0x22B0, 0x203C},
     {0x2230, 0xDE87A5A0},
+    //due an unknown bug wakeup timer register must be written multiple times
+    {0x0908, 0x02c9},
   };
   //initialize global variables
   SeqGenDB.SeqLen = 0;
